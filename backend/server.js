@@ -6,12 +6,14 @@ import productRoute from "./routes/product.route.js";
 
 dotenv.config();
 
+const PORT = process.env.PORT;
+
 const app = express();
 app.use(express.json());
 
 app.use("/api/products", productRoute);
 
-app.listen(5001, async () => {
+app.listen(PORT, async () => {
   await connectDB();
-  console.log("Server running on PORT http://localhost:5001");
+  console.log(`Server running on http://localhost:${PORT}`);
 });
